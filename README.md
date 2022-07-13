@@ -6,6 +6,7 @@ Simple timer app, doesn't fetch anything from leetcode, written in tkinter.
 
 Why Not use existing timers ?
 - I tried, but they didn't 'feel' good, or overkill
+- Modified using/inspired from https://github.com/fatihbahadir/PomodroTimer
 
 Color codes used from defaults in nanogui library (accha colors hai :)
 
