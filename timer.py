@@ -1,5 +1,6 @@
 #!/bin/env python
 from tkinter import NORMAL, DISABLED, Tk, Canvas, Frame, Label, Button
+from sys import argv
 
 """
 Editing defaults:
@@ -13,7 +14,11 @@ class App(Tk):
 
         self.after_id = None
 
-        self.max_t = 360
+        # Use argv[1] if present, else set 6 minutes (360 seconds) as default
+        if len(argv) > 1:
+            self.max_t = int(argv[1])*60
+        else:
+            self.max_t = 6*60
         self.t = self.max_t
 
         self.counter = 0

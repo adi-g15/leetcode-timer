@@ -17,6 +17,11 @@ Color codes used from defaults in nanogui library (accha colors hai :)
 
 > 5 minutes for thinking time, isliye default rakha hu
 
+### Setting custom time limit
+
+Pass the number of minutes as argument, eg. `./timer.py 6` for 6 minutes reset
+time
+
 ### How I use
 
 Step 1: Start the timer, either from terminal, or I use .desktop file, so I can start it as any other application
