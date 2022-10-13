@@ -33,10 +33,11 @@ class App(Tk):
         #self.lbl_resets.grid(row=0,column=0,columnspan=2)
         self.lbl_resets.place(x=10,y=10)
 
-        self.btn_reset=Button(self.main_frame,text="Reset",activebackground="#242424", bg="#3f3f3f",width=23, fg="#b7b7b7", border=0, command=self.reset)
+        self.btn_reset=Button(self.main_frame,text="Start",activebackground="#242424", bg="#3f3f3f",width=23, fg="#b7b7b7", border=0, command=self.reset)
         self.btn_reset.grid(row=5, column=0,columnspan=1)
 
         self.btn_stop=Button(self.main_frame,text="Stop",activebackground="#242424", bg="#3f3f3f", fg="#b7b7b7",width=25,border=0,command=self.stop)
+        self.btn_stop.config(state=DISABLED)
         self.btn_stop.grid(row=5, column=1, columnspan=1)
 
     def countdown(self):
