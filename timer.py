@@ -13,7 +13,9 @@ class App(Tk):
 
         self.after_id = None
 
-        self.t = 300
+        self.max_t = 360
+        self.t = self.max_t
+
         self.counter = 0
 
         # Window will not be resizable
@@ -26,7 +28,9 @@ class App(Tk):
         self.main_frame = Frame(self, bg="#2e2e2f")
         self.main_frame.place(relx=0, rely=0, relwidth=1, relheight=1)
 
-        self.counter_lbl= Label(self.main_frame,text="5:00",bg="#2e2e2f",fg="#b7b7b7",font="SourceCodePro 68")
+        # t//60 represents number of minutes
+        # t%60 is number of seconds
+        self.counter_lbl = Label(self.main_frame,text="{:01d}:{:02d}".format(self.t//60, self.t%60),bg="#2e2e2f",fg="#b7b7b7",font="SourceCodePro 68")
         self.counter_lbl.grid(row=1,column=0,columnspan=2,rowspan=4,padx=23,pady=20)
 
         self.lbl_resets= Label(text=f"Total Resets: {self.counter}",fg="#b7b7b7",bg="#2e2e2f",font="Times 10 italic")
@@ -59,9 +63,9 @@ class App(Tk):
             self.btn_stop.config(text="Stop")
             self.btn_stop.config(state=NORMAL)
             self.btn_reset.config(text="Reset")
- 
-        # Reset to 5 minutes
-        self.t = 300-1
+
+        # Reset to max_t - 1 minutes,seconds
+        self.t = self.max_t - 1
 
         # Increase reset counter
         self.counter+=1
