@@ -22,6 +22,15 @@ Color codes used from defaults in nanogui library (accha colors hai :)
 Pass the number of minutes as argument, eg. `./timer.py 6` for 6 minutes reset
 time
 
+### Negative timer
+
+To control behaviour after time runs out, ie. whether to keep counting in
+negative so you know how much you have crossed the limit, or stop after reaching
+0:00.
+
+Set the `self.negative_time_support` boolean for this in the `__init__`
+function.
+
 ### How I use
 
 Step 1: Start the timer, either from terminal, or I use .desktop file, so I can start it as any other application

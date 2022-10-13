@@ -14,6 +14,9 @@ class App(Tk):
 
         self.after_id = None
 
+        # Usage: Change this if you want the timer to stop after reaching 0:0
+        self.negative_time_support = True
+
         # Use argv[1] if present, else set 6 minutes (360 seconds) as default
         if len(argv) > 1:
             self.max_t = int(argv[1])*60
@@ -50,15 +53,19 @@ class App(Tk):
         self.btn_stop.grid(row=5, column=1, columnspan=1)
 
     def countdown(self):
-        if self.t>0:
-            mins,secs=divmod(self.t,60)
-            timer="{:01d}:{:02d}".format(mins,secs)
+        if self.t>=0 or self.negative_time_support:
+            # if `mins` is negative, it will show the negative sign
+            mins,secs=divmod(abs(self.t), 60)
+            if self.t >= 0:
+                timer="{:01d}:{:02d}".format(mins,secs)
+            else:
+                timer="-{:01d}:{:02d}".format(mins,secs)
             self.counter_lbl.config(text=timer)
             self.t=self.t-1
             self.after_id = self.counter_lbl.after(1000,self.countdown)
 
-        elif self.t==0:
-            self.counter_lbl.config(text="00:00")
+        else:
+            self.counter_lbl.config(text="0:00")
             self.counter+=1
             self.lbl_resets.config(text=f"Total Resets: {self.counter}")
 
